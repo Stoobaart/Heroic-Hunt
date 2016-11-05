@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Project1</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="javascript/data.js"></script>
+	<script type="text/javascript" src="javascript/javascript.js"></script>
+	<link rel="stylesheet" href="stylesheet.css">
+
+	<script type="text/x-handlebars-template" id="displayCharacters">
+	<div id="characterPanel">
+		<ul id="charList">
+			{{#each heroicHunters}}
+				<div class="characterPanes" id="{{name}}">
+					<div id="profilePic"> 
+						<img class="thumbnail" src="./images/{{thumbnail}}">
+					</div>
+					<h2 id="name">{{name}}</h2>
+					<ul>
+						<li id="health">Health: <span>{{health}}</span></li>
+						<li id="attack">Attack: <span>{{attack}}</span></li>
+						<li id="defence">Defence: <span>{{defence}}</span></li>
+						<li id="block">Block: <span>{{block}}</span></li>
+						<li><button class="select-character" data-character-name="{{name}}" id="p1">Select</button></li>
+						<li><button class="select-character" data-character-name="{{name}}" id="p2">Select</button></li>
+					</ul>
+				</div>
+			{{/each}}
+		</ul>
+	</div>
+	</script>
+
+</head>
+
+<body>
+	<h1 id="mainTitle">Heroic Hunt</h1>
+	<div id="startArea">
+		<input type="button" id="fight" value="Begin the epic hunt"/>
+	</div>
+	<div id="characterSelect">
+		<h2>Choose your characters</h2>
+		<div id="alertMessage"></div>
+
+	</div>
+	<div id="characterSelectScreen"></div>
+
+<button id="start-button">Start Fighting!</button>
+	<div id="battle-arena">
+		<div id="ring">
+			<button id="start-round">Start Round!</button>
+			<button id="p1attack">Attack</button>
+			<button id="p1defend">Defend</button>
+			<button id="p2attack">Attack</button>
+			<button id="p2defend">Defend</button>
+		</div>
+
+		<div id="p1-panel">
+			<div id="p1-thumbnail"></div>
+			<h3 id="p1-name"></h3>	
+			<ul>
+				<li id="p1-health"></li>
+				<li id="p1-attack"></li>
+				<li id="p1-defence"></li>
+				<li id="p1-block"></li>
+			</ul>
+		</div>
+
+		<div id="p2-panel">
+			<div id="p2-thumbnail"></div>
+			<h3 id="p2-name"></h3>	
+			<ul>
+				<li id="p2-health"></li>
+				<li id="p2-attack"></li>
+				<li id="p2-defence"></li>
+				<li id="p2-block"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
