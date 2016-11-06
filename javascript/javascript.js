@@ -14,7 +14,14 @@ var alertPlayerTurn = function(message){
 $(function() {
 var theme = document.getElementById("theme");
 var battle = document.getElementById("battle");
+var hit = document.getElementById("hit");
+var block = document.getElementById("block");
+var select = document.getElementById("select");
+var draw = document.getElementById("draw");
 window.onload = function(){
+	theme.play();
+}
+function playTheme(){
 	theme.play();
 }
 function pauseTheme(){
@@ -26,23 +33,36 @@ function playBattle(){
 function pauseBattle(){
 	battle.pause();
 }
+function playHit(){
+	hit.play();
+}
+function playBlock(){
+	block.play();
+}
+function playSelect(){
+	select.play();
+}
+function playDraw(){
+	draw.play();
+}
 
 	$("#characterSelect, #battle-arena, #start-button").hide();
 
-	//compile characters into the character selection pane
+	//add character objects into the character selection pane
   var charactersSource = $("#displayCharacters").html();
   var charSelectTemplate = Handlebars.compile(charactersSource);
   $("#characterSelectScreen").append(charSelectTemplate({heroicHunters: window.characters}));
   $("#characterPanel").hide();
 
   $("#fight").on("click", function() {
-
+  	playSelect();
   	$("h1, #startArea, #p2").hide();
 		$("#characterPanel, #characterSelect").toggle();
 		alertMessage("Player 1 choose your character");
   });
 
 	$("#charList").on("click", ".select-character", function() {
+		playSelect();
 		var playerNumber = $(this).attr('id');
 
 		specs = ["health", "attack", "defence", "block"];
@@ -83,8 +103,10 @@ function pauseBattle(){
 $("#start-button").on("click", function() {
 	pauseTheme();
 	playBattle();
+	$("#characterSelect h2").html("Battle");
 	$("#charList").slideUp();
 	$("#battle-arena").toggle();
+	$("#return").hide();
 	$("#start-button").remove();
 	alertMessage("Start the Fight!");
 
@@ -104,16 +126,19 @@ var round = 0;
 deathCheck = function(){
 		if(($("#p1-health span").text()) <= 0) {
 			alertMessage("Player 2 WINS!");
-			$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round").remove();
+			$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round, #alertPlayerTurn").remove();
+			//$("#return").toggle();
 			} else if(($("#p2-health span").text()) <= 0) {
 				alertMessage("Player 1 WINS!");
-				$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round").remove();
+				$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round, #alertPlayerTurn").remove();
+				//$("#return").toggle();
 				}
 	}
 
 $("button#p1attack, button#p1defend, button#p2attack, button#p2defend").hide();
 
 $("#start-round").on("click", function(){
+	playDraw();
 	round += 1;
 	alertMessage("Round " +round+ "!");
 
@@ -128,6 +153,7 @@ $("button#p1attack").on("click", function() {
 	if(finalP1AttackVal < 0) {
 		var attack = 0;
 		alertMessage("Player 2 blocked your full attack!");
+		playBlock();
 	} else {
 		var attack = finalP1AttackVal;
 		alertMessage("Player one attacks for " +attack+ " points of damage (Player 2 blocked " +p2DefVal+ " points)");
@@ -141,6 +167,7 @@ $("button#p1attack").on("click", function() {
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").toggle();
 	alertPlayerTurn("Player 2's turn");
+	playHit();
 })
 
 $("button#p2attack").on("click", function() {
@@ -149,6 +176,7 @@ $("button#p2attack").on("click", function() {
 	if(finalP2AttackVal < 0) {
 		var attackP2 = 0;
 		alertMessage("Player 1 blocked your full attack!");
+		playBlock();
 	} else {
 		var attackP2 = finalP2AttackVal;
 		alertMessage("Player two attacks for " +attackP2+ " points of damage (Player one blocked " +p1DefVal+ " points)");
@@ -163,6 +191,7 @@ $("button#p2attack").on("click", function() {
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").hide();
 	$("#start-round").toggle();
 	alertPlayerTurn("Player 1's turn");
+	playHit();
 })
 
 
@@ -174,6 +203,7 @@ $("button#p2defend").on("click", function() {
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").hide();
 	$("#start-round").toggle();
+	playBlock();
 })
 
 $("button#p1defend").on("click", function() {
@@ -182,9 +212,17 @@ $("button#p1defend").on("click", function() {
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").toggle();
 	alertPlayerTurn("Player 2's turn");
+	playBlock();
 })
 
 
+/*$("button#return").on("click", function() {
+	pauseBattle();
+	playTheme();
+	$("#charList").slideDown();
+	$("#battle-arena, .select-character").toggle();
+	alertMessage("Start the Fight!");
+})*/
 
 })
 

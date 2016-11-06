@@ -38,10 +38,22 @@
 <body>
 	<h1 id="mainTitle">Heroic Hunt</h1>
 		<audio loop id="theme">
-		<source src="sounds/189966__levelclearer__intro-clouds.wav" type="audio/wav">
+			<source src="sounds/189966__levelclearer__intro-clouds.wav" type="audio/wav">
 		</audio>
 		<audio loop id="battle">
-		<source src="sounds/250856__joshuaempyre__epic-orchestra-loop.wav" type="audio/wav">
+			<source src="sounds/250856__joshuaempyre__epic-orchestra-loop.wav" type="audio/wav">
+		</audio>
+		<audio id="hit">
+			<source src="sounds/223630__ctcollab__shield-hit-1.wav" type="audio/wav">
+		</audio>
+		<audio id="block">
+			<source src="sounds/319590__hybrid-v__shield-bash-impact.wav" type="audio/wav">
+		</audio>
+		<audio id="select">
+			<source src="sounds/172203__fins__menu-button.wav" type="audio/wav">
+		</audio>
+		<audio id="draw">
+			<source src="sounds/175957__freefire66__swordraw.wav" type="audio/wav">
 		</audio>
 		
 	<div id="startArea">
@@ -63,6 +75,7 @@
 			<button class="battle-btn" id="p1defend">Defend</button>
 			<button class="battle-btn" id="p2attack">Attack</button>
 			<button class="battle-btn" id="p2defend">Defend</button>
+			<button id="return">Fight again</button>
 		</div>
 
 		<div id="p1-panel">
