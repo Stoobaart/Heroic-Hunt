@@ -17,9 +17,22 @@ li {
 #startArea {
 	text-align: center;
 }
+@keyframes glowing {
+  0% { background-color: #800000; box-shadow: 0 0 3px #004A7F; }
+  50% { background-color: #ff0000; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #800000; box-shadow: 0 0 3px #004A7F; }
+}
 #fight {
+	animation: glowing 2200ms infinite;
 	margin: auto;
+	padding: 0 2em 0 2em;
 	text-align: center;
+	border-radius: 5%;
+	font-size: 2em;
+	transition: all 0.3s ease 0s;
+}
+#fight:hover{
+	color: gold;
 }
 #characterSelect {
 	text-align: center;
@@ -35,6 +48,27 @@ h2 {
 	width: auto;
 	display: flex;
 	flex-wrap: wrap;
+}
+.select-character {
+	font-size: 1em;
+	border-radius: 10%;
+	background-color: red;
+}
+.select-character:hover{
+	color: gold;
+}
+#start-button {
+	margin-top: 50px;
+	margin-left: 95px;
+	animation: glowing 2200ms infinite;
+	padding: 0 2em 0 2em;
+	text-align: center;
+	border-radius: 5%;
+	font-size: 2em;
+	transition: all 0.3s ease 0s;
+}
+#start-button:hover{
+	color: gold;
 }
 #name {
 	font-size: 2em;
@@ -78,10 +112,6 @@ img {
 #p2-panel ul {
 	padding: 0;
 }
-
-
-
-
 #charList {
 	color: White;
 }
@@ -95,6 +125,15 @@ img {
 	width: 100%;
 	height: 20em;
 	margin: auto;
+}
+#start-round {
+	margin-left: 35px;
+	animation: glowing 2200ms infinite;
+	padding: 0 2em 0 2em;
+	text-align: center;
+	border-radius: 5%;
+	font-size: 1.5em;
+	transition: all 0.3s ease 0s;
 }
 #p1-panel {
 	border: white solid 2px;
@@ -121,17 +160,39 @@ img {
 #ring {
 	border: white solid 2px;
 	width: 55%;
-	height: 100%;
+	height: 99.5%;
 	position: relative;
 	margin: auto;
+}
+.battle-btn {
+	font-style: italic;
+	font-size: 1em;
+	background-color: black;
+	border-radius: 5%;
+	color: red;
+}
+#p2attack {
+	margin-left: 169px;
 }
 
 /*Gerry*/
 
 #alertMessage{
-	width: 100%;
+	margin-bottom: 20px;
+	width: 97%;
 	background-color: #990000;
-	min-height: 50px;
+	min-height: 65px;
 	border-radius:30px;
-	padding-top: 30px;
+	padding: 15px 10px 0px 10px;
+	font-size: 1.5em;
+}
+#alertPlayerTurn{
+	margin-top: 20px;
+	width: 97%;
+	background-color: #990000;
+	min-height: 65px;
+	border-radius:30px;
+	padding: 30px 10px 0px 10px;
+	font-size: 1.5em;
+	text-align: center;
 }

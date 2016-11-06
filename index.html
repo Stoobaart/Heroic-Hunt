@@ -37,23 +37,24 @@
 <body>
 	<h1 id="mainTitle">Heroic Hunt</h1>
 	<div id="startArea">
-		<input type="button" id="fight" value="Begin the epic hunt"/>
+		<input type="button" id="fight" value="Start"/>
 	</div>
 	<div id="characterSelect">
 		<h2>Choose your characters</h2>
 		<div id="alertMessage"></div>
 
 	</div>
-	<div id="characterSelectScreen"></div>
+	<div id="characterSelectScreen">
+		<input type="button" id="start-button" value="Start Fighting!"/>
+	</div>
 
-<button id="start-button">Start Fighting!</button>
 	<div id="battle-arena">
 		<div id="ring">
 			<button id="start-round">Start Round!</button>
-			<button id="p1attack">Attack</button>
-			<button id="p1defend">Defend</button>
-			<button id="p2attack">Attack</button>
-			<button id="p2defend">Defend</button>
+			<button class="battle-btn" id="p1attack">Attack</button>
+			<button class="battle-btn" id="p1defend">Defend</button>
+			<button class="battle-btn" id="p2attack">Attack</button>
+			<button class="battle-btn" id="p2defend">Defend</button>
 		</div>
 
 		<div id="p1-panel">
@@ -77,6 +78,8 @@
 				<li id="p2-block"></li>
 			</ul>
 		</div>
+		<div id="alertPlayerTurn"></div>
 	</div>
+
 </body>
 </html>

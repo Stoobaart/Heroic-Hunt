@@ -6,6 +6,10 @@ var alertMessage = function(message){
 	$("#alertMessage").text(message);
 }
 
+var alertPlayerTurn = function(message){
+	$("#alertPlayerTurn").text(message);
+}
+
 $(function() {
 
 	$("#characterSelect, #battle-arena, #start-button").hide();
@@ -38,7 +42,7 @@ $(function() {
 		}
 		//using playerNumber and the var thumbnail above, try to insert an image in
 		// either p1-thumbnail or p2-thumbnail 
-		
+
 
 		$("#" + playerNumber + "-name").append(name);
 
@@ -98,6 +102,7 @@ $("#start-round").on("click", function(){
 
 	$("button#p1attack, button#p1defend").toggle();
 	$("#start-round").toggle();
+	alertPlayerTurn("Player 1's turn");
 })
 
 $("button#p1attack").on("click", function() {
@@ -118,7 +123,7 @@ $("button#p1attack").on("click", function() {
 	deathCheck();
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").toggle();
-
+	alertPlayerTurn("Player 2's turn");
 })
 
 $("button#p2attack").on("click", function() {
@@ -140,6 +145,7 @@ $("button#p2attack").on("click", function() {
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").hide();
 	$("#start-round").toggle();
+	alertPlayerTurn("Player 1's turn");
 })
 
 
@@ -158,7 +164,7 @@ $("button#p1defend").on("click", function() {
 	alertMessage("Player one raises defences!");
 
 	$("button#p1attack, button#p1defend, button#p2attack, button#p2defend").toggle();
-
+	alertPlayerTurn("Player 2's turn");
 })
 
 
