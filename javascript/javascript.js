@@ -10,7 +10,22 @@ var alertPlayerTurn = function(message){
 	$("#alertPlayerTurn").text(message);
 }
 
+
 $(function() {
+var theme = document.getElementById("theme");
+var battle = document.getElementById("battle");
+window.onload = function(){
+	theme.play();
+}
+function pauseTheme(){
+	theme.pause();
+}
+function playBattle(){
+	battle.play();
+}
+function pauseBattle(){
+	battle.pause();
+}
 
 	$("#characterSelect, #battle-arena, #start-button").hide();
 
@@ -66,6 +81,8 @@ $(function() {
 
 
 $("#start-button").on("click", function() {
+	pauseTheme();
+	playBattle();
 	$("#charList").slideUp();
 	$("#battle-arena").toggle();
 	$("#start-button").remove();
