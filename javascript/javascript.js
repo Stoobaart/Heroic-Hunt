@@ -90,7 +90,7 @@ function playDraw(){
 			message = "Player1 has picked " + name + ", Player 2 choose your character"
 		}
 		alertMessage(message);
-		//console.log(playerNumber)
+		
 		if(playerNumber == "p2"){
 			alertMessage("Player2 has picked " + name + ", FIGHT!")
 			$("#start-button").toggle();
@@ -127,11 +127,11 @@ deathCheck = function(){
 		if(($("#p1-health span").text()) <= 0) {
 			alertMessage("Player 2 WINS!");
 			$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round, #alertPlayerTurn").remove();
-			//$("#return").toggle();
+			$("#return").toggle();
 			} else if(($("#p2-health span").text()) <= 0) {
 				alertMessage("Player 1 WINS!");
 				$("#p1attack, #p1defend, #p2attack, #p2defend, #start-round, #alertPlayerTurn").remove();
-				//$("#return").toggle();
+				$("#return").toggle();
 				}
 	}
 
@@ -214,15 +214,6 @@ $("button#p1defend").on("click", function() {
 	alertPlayerTurn("Player 2's turn");
 	playBlock();
 })
-
-
-/*$("button#return").on("click", function() {
-	pauseBattle();
-	playTheme();
-	$("#charList").slideDown();
-	$("#battle-arena, .select-character").toggle();
-	alertMessage("Start the Fight!");
-})*/
 
 })
 

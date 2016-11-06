@@ -70,6 +70,16 @@ h2 {
 #start-button:hover{
 	color: gold;
 }
+#return{
+	margin-left: 80px;
+  margin-top: 145px;
+  animation: glowing 2200ms infinite;
+  font-size: 1.5em;
+  border-radius: 5%;
+}
+#return:hover{
+	color: gold;
+}
 #name {
 	font-size: 2em;
 	font-style: bold;
@@ -115,7 +125,6 @@ img {
 #charList {
 	color: White;
 }
-
 .characterPanes {
 	padding: 3em;
 }
