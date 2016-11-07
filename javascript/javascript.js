@@ -225,7 +225,8 @@ $("button#p1defend").on("click", function() {
 
 $("button#p1potion").on("click", function() {
 	if (p1Potions > 0) {
-		var p1healthAdd = parseInt(p1health) + 30;
+		var currentP1Health = parseInt($("#p1-health span").text());
+		var p1healthAdd = currentP1Health + 30;
 		p1health = p1healthAdd;
 		$("#p1-health span").html(p1health);
 		var newp1Potions = parseInt(p1Potions) - 1;
@@ -239,13 +240,15 @@ $("button#p1potion").on("click", function() {
 
 $("button#p2potion").on("click", function() {
 	if (p2Potions > 0) {
-		var p2healthAdd = parseInt(p2health) + 30;
+		var currentP2Health = parseInt($("#p2-health span").text());
+		var p2healthAdd = currentP2Health + 30;
 		p2health = p2healthAdd;
 		$("#p2-health span").html(p2health);
 		var newp2Potions = parseInt(p2Potions) - 1;
 		p2Potions = newp2Potions;
 		$("#p2-potions span").html(p2Potions);
-		buttonsToggle();
+		buttonsHide();
+		$("#start-round").toggle();
 	}else{
 		alertMessage("No potions left, choose another action");
 	}
