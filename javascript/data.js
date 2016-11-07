@@ -5,6 +5,7 @@ var characters = [
 	attack: 35,
 	defence: 25,
 	block: 25,
+	potions: 1,
 	thumbnail: "Dwayne.png"
 },
 {
@@ -13,6 +14,7 @@ var characters = [
 	attack: 50,
 	defence: 25,
 	block: 30,
+	potions: 3,
 	thumbnail: "Sherry.png"
 },
 {
@@ -21,6 +23,7 @@ var characters = [
 	attack: 25,
 	defence: 40,
 	block: 25,
+	potions: 1,
 	thumbnail: "Brickface.png"
 },
 {
@@ -29,6 +32,7 @@ var characters = [
 	attack: 40,
 	defence: 15,
 	block: 45,
+	potions: 2,
 	thumbnail: "Cody.png"
 }
 ];

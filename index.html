@@ -24,6 +24,7 @@
 						<li id="attack">Attack: <span>{{attack}}</span></li>
 						<li id="defence">Defence: <span>{{defence}}</span></li>
 						<li id="block">Block: <span>{{block}}</span></li>
+						<li id="potions">Potions: <span>{{potions}}</span></li>
 						<li><button class="select-character" data-character-name="{{name}}" id="p1">Select</button></li>
 						<li><button class="select-character" data-character-name="{{name}}" id="p2">Select</button></li>
 					</ul>
@@ -73,8 +74,10 @@
 			<button id="start-round">Start Round!</button>
 			<button class="battle-btn" id="p1attack">Attack</button>
 			<button class="battle-btn" id="p1defend">Defend</button>
+			<button class="battle-btn" id="p1potion">Potion</button>
 			<button class="battle-btn" id="p2attack">Attack</button>
 			<button class="battle-btn" id="p2defend">Defend</button>
+			<button class="battle-btn" id="p2potion">Potion</button>
 			<input id="return" type="button" value="Fight again" onClick="window.location.reload()">
 		</div>
 
@@ -86,6 +89,7 @@
 				<li id="p1-attack"></li>
 				<li id="p1-defence"></li>
 				<li id="p1-block"></li>
+				<li id="p1-potions"></li>
 			</ul>
 		</div>
 
@@ -97,6 +101,7 @@
 				<li id="p2-attack"></li>
 				<li id="p2-defence"></li>
 				<li id="p2-block"></li>
+				<li id="p2-potions"></li>
 			</ul>
 		</div>
 		<div id="alertPlayerTurn"></div>
